@@ -26,7 +26,7 @@ function bygolang(){
 }
 
 # ripgrep
-VERSION_RIPGREP=0.10.0
+VERSION_RIPGREP=11.0.2
 byrust BurntSushi ripgrep $VERSION_RIPGREP rg
 
 # fd
