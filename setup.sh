@@ -29,18 +29,18 @@ function bygolang(){
 
 # ripgrep
 VERSION_RIPGREP=11.0.2
-byrust BurntSushi ripgrep $VERSION_RIPGREP rg
+which rg >/dev/null || byrust BurntSushi ripgrep $VERSION_RIPGREP rg
 
 # fd
 VERSION_FD=v7.2.0
-byrust sharkdp fd $VERSION_FD fd
+which fd >/dev/null || byrust sharkdp fd $VERSION_FD fd
 
 # godit
-docker run --rm -it --name golang -v $(pwd):/cwd -w /cwd golang:1.11 bash -c 'go get github.com/nsf/godit && mv /go/bin/godit /cwd/'
+which godit >/dev/null || docker run --rm -it --name golang -v $(pwd):/cwd -w /cwd golang:1.11 bash -c 'go get github.com/nsf/godit && mv /go/bin/godit /cwd/'
 
-# micro
-curl https://getmic.ro | bash
+# # micro
+# which micro >/dev/null || curl https://getmic.ro | bash
 
 # 9t
 VERSION_9t=0.0.2
-bygolang gongo 9t $VERSION_9t
+which 9t >/dev/null || bygolang gongo 9t $VERSION_9t
