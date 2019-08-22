@@ -31,9 +31,10 @@ function bygolang(){
   USER=$1
   REPO=$2
   V=$3
-  curl -LO https://github.com/${USER}/${REPO}/releases/download/${V}/${REPO}_${V}_linux_amd64.zip
-  unzip ${REPO}_${V}_linux_amd64.zip
-  rm ${REPO}_${V}_linux_amd64.zip
+  PACK=${REPO}_${V}_linux_amd64.zip
+  curl -LO https://github.com/${USER}/${REPO}/releases/download/${V}/${PACK}
+  unzip ${PACK}
+  rm ${PACK}
 }
 
 # ripgrep
