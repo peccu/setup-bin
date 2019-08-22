@@ -8,12 +8,14 @@ function byrust(){
   V=$3
   APP=$4
   POSTFIX=i686-unknown-linux-musl
-  echo curl -LO https://github.com/${USER}/${REPO}/releases/download/${V}/${REPO}-${V}-${POSTFIX}.tar.gz
-  curl -LO https://github.com/${USER}/${REPO}/releases/download/${V}/${REPO}-${V}-${POSTFIX}.tar.gz
-  tar xzf ${REPO}-${V}-${POSTFIX}.tar.gz
-  mv ${REPO}-${V}-${POSTFIX}/${APP} ${APP}
-  rm ${REPO}-${V}-${POSTFIX}.tar.gz
-  rm -rf ${REPO}-${V}-${POSTFIX}
+  PACK=${REPO}-${V}-${POSTFIX}
+  EXT=tar.gz
+  echo curl -LO https://github.com/${USER}/${REPO}/releases/download/${V}/${PACK}.${EXT}
+  curl -LO https://github.com/${USER}/${REPO}/releases/download/${V}/${PACK}.${EXT}
+  tar xzf ${PACK}.${EXT}
+  mv ${PACK}/${APP} ${APP}
+  rm ${PACK}.${EXT}
+  rm -rf ${PACK}
 }
 
 function bygolang(){
