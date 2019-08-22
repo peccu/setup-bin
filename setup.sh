@@ -18,6 +18,15 @@ function byrust(){
   rm -rf ${PACK}
 }
 
+function fzf_install(){
+  V=$1
+  PACK=fzf-${V}-linux_amd64
+  EXT=tgz
+  curl -LO https://github.com/junegunn/fzf-bin/releases/download/${V}/${PACK}.${EXT}
+  tar xzf fzf-${V}-linux_amd64.tgz
+  rm ${PACK}.${EXT}
+}
+
 function bygolang(){
   USER=$1
   REPO=$2
@@ -44,3 +53,7 @@ which godit >/dev/null || docker run --rm -it --name golang -v $(pwd):/cwd -w /c
 # 9t
 VERSION_9t=0.0.2
 which 9t >/dev/null || bygolang gongo 9t $VERSION_9t
+
+# fzf
+VERSION_fzf=0.18.0
+which fzf >/dev/null || fzf_install $VERSION_fzf
